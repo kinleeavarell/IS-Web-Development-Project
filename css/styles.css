@@ -1,0 +1,500 @@
+/* ====================================
+   Makinlee Avarell - Personal Website
+   colors: light pink + sage green
+   ==================================== */
+
+/* --- basic reset stuff --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', Arial, sans-serif;
+    color: #4a4a4a;
+    background-color: #fffbf9;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #3a3a3a;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #d4839b;
+}
+
+a:hover {
+    color: #c06a84;
+}
+
+
+/* --- top navigation bar --- */
+.topnav {
+    background-color: #fff;
+    padding: 16px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 1px solid #f0e8e4;
+    box-shadow: 0 1px 12px rgba(0,0,0,0.04);
+}
+
+.nav-name {
+    font-family: 'Playfair Display', serif;
+    color: #3a3a3a;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.nav-name:hover {
+    color: #d4839b;
+}
+
+.nav-links a {
+    color: #777;
+    margin-left: 28px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #d4839b;
+}
+
+.nav-links a.active {
+    color: #d4839b;
+    border-bottom: 2px solid #d4839b;
+    padding-bottom: 4px;
+}
+
+
+/* --- hero section on homepage --- */
+.hero-section {
+    background: linear-gradient(160deg, #fce4ec 0%, #f8d7e0 40%, #e8f0e4 100%);
+    color: #3a3a3a;
+    text-align: center;
+    padding: 150px 20px 90px 20px;
+    margin-top: 56px;
+}
+
+.hero-text h1 {
+    color: #3a3a3a;
+    font-size: 3.4rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.hero-text .subtitle {
+    font-size: 1.1rem;
+    color: #8a8a8a;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: rgba(212,131,155,0.15);
+    border-radius: 50%;
+    color: #d4839b;
+    margin: 0 6px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background-color: #d4839b;
+    color: white;
+}
+
+
+/* --- about section --- */
+.about-section {
+    max-width: 880px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.about-img img {
+    display: block;
+}
+
+.about-text p {
+    font-size: 1.02rem;
+    color: #666;
+}
+
+/* for smaller screens stack them */
+@media (max-width: 700px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-img img {
+        margin: 0 auto;
+    }
+}
+
+
+/* --- quick facts cards --- */
+.funfacts-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f8f2;
+}
+
+.facts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+    max-width: 880px;
+    margin: 0 auto;
+    margin-top: 28px;
+}
+
+.fact-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 22px;
+    width: 190px;
+    border: 1px solid #eae6e3;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(212,131,155,0.12);
+}
+
+.fact-card h3 {
+    font-size: 1.05rem;
+    margin: 14px 0 8px 0;
+    color: #3a3a3a;
+}
+
+.fact-card p {
+    font-size: 0.88rem;
+    color: #888;
+}
+
+
+/* --- contact section --- */
+.contact-section {
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.contact-section h2 {
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    color: #888;
+    margin-bottom: 12px;
+}
+
+
+/* --- footer --- */
+.footer {
+    background-color: #f4f8f2;
+    color: #aaa;
+    text-align: center;
+    padding: 22px;
+    font-size: 0.85rem;
+    border-top: 1px solid #e4e0dc;
+}
+
+
+/* ============================
+   RESUME PAGE STYLES
+   ============================ */
+.resume-page {
+    max-width: 720px;
+    margin: 70px auto 30px auto;
+    padding: 40px 35px;
+    background: white;
+    border-radius: 18px;
+    border: 1px solid #f0e8e4;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+}
+
+.resume-block {
+    margin-bottom: 35px;
+}
+
+.resume-block h2 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #e8c8d4;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+}
+
+.resume-item {
+    margin-bottom: 22px;
+    padding-left: 12px;
+    border-left: 3px solid #f4f8f2;
+}
+
+.resume-item h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.resume-date {
+    color: #d4839b;
+    font-weight: 600;
+    font-size: 0.88rem;
+    margin-bottom: 5px;
+}
+
+.resume-item ul {
+    padding-left: 20px;
+    color: #777;
+}
+
+.resume-item ul li {
+    margin-bottom: 4px;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background-color: #fce4ec;
+    color: #a0566c;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+
+/* ============================
+   TRAVEL PAGE STYLES
+   ============================ */
+.travel-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px 20px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.travel-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    width: 430px;
+    border: 1px solid #eae6e3;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.travel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(212,131,155,0.1);
+}
+
+.travel-card-img {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.travel-card-text {
+    padding: 22px;
+}
+
+.travel-card-text h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.travel-card-text p {
+    color: #777;
+    font-size: 0.93rem;
+    margin-bottom: 14px;
+}
+
+.travel-tag {
+    display: inline-block;
+    background-color: #f4f8f2;
+    color: #6b8a5e;
+    padding: 5px 14px;
+    border-radius: 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+/* photo gallery - pinterest masonry style */
+.photo-gallery {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    width: calc(33.333% - 12px);
+    margin-bottom: 18px;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02) rotate(-0.5deg);
+    box-shadow: 0 8px 25px rgba(212,131,155,0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+}
+
+.gallery-caption {
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        width: calc(50% - 10px);
+        margin-bottom: 14px;
+    }
+}
+
+/* map fix */
+#travelMap {
+    z-index: 1;
+    position: relative;
+}
+
+/* travel page quote section */
+.travel-quote {
+    text-align: center;
+    padding: 45px 20px;
+    background-color: #fce4ec;
+    margin: 30px 0 0 0;
+}
+
+/* photo gallery popup */
+.gallery-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-box {
+    background: white;
+    border-radius: 18px;
+    padding: 30px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.gallery-close {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 2rem;
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.gallery-close:hover {
+    color: #d4839b;
+}
+
+.gallery-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.gallery-photos img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    aspect-ratio: 3/4;
+}
+
+@media (max-width: 500px) {
+    .gallery-photos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .travel-card {
+        width: 100%;
+    }
+    .hero-text h1 {
+        font-size: 2.3rem;
+    }
+    .topnav {
+        padding: 14px 18px;
+    }
+    .nav-links a {
+        margin-left: 15px;
+        font-size: 0.82rem;
+    }
+}

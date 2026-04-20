@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel Match Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #fdf8f5;
+            color: #4a4a4a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+        }
+
+        .quiz-container {
+            background: white;
+            border-radius: 20px;
+            padding: 45px 40px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            text-align: center;
+        }
+
+        .quiz-container h1 {
+            font-size: 2rem;
+            color: #3a3a3a;
+            margin-bottom: 8px;
+        }
+
+        .quiz-container .subtitle {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            display: none;
+        }
+
+        .question.active {
+            display: block;
+        }
+
+        .question h2 {
+            font-size: 1.3rem;
+            color: #3a3a3a;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #f0e8e4;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #d4839b;
+            border-radius: 3px;
+            transition: width 0.4s ease;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-btn {
+            background: #fdf8f5;
+            border: 2px solid #f0e8e4;
+            border-radius: 12px;
+            padding: 14px 20px;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .option-btn:hover {
+            border-color: #d4839b;
+            background-color: #fce4ec;
+            color: #3a3a3a;
+        }
+
+        /* result screen */
+        .result {
+            display: none;
+        }
+
+        .result.active {
+            display: block;
+        }
+
+        .result h2 {
+            font-size: 1.6rem;
+            color: #3a3a3a;
+            margin-bottom: 8px;
+        }
+
+        .result .destination-name {
+            font-size: 2.2rem;
+            color: #d4839b;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .result p {
+            color: #777;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .result-img {
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            object-fit: cover;
+            aspect-ratio: 3/4;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            margin: 0 5px;
+        }
+
+        .btn-pink {
+            background-color: #d4839b;
+            color: white;
+        }
+
+        .btn-pink:hover {
+            background-color: #c06a84;
+        }
+
+        .btn-outline {
+            background: none;
+            border: 2px solid #d4839b;
+            color: #d4839b;
+        }
+
+        .btn-outline:hover {
+            background-color: #d4839b;
+            color: white;
+        }
+
+        .back-link {
+            margin-top: 25px;
+        }
+
+        .back-link a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .back-link a:hover {
+            color: #d4839b;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+    <h1>Travel Match Quiz</h1>
+    <p class="subtitle">Answer 5 questions to find your perfect destination.</p>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+    </div>
+
+    <!-- question 1 -->
+    <div class="question active" id="q1">
+        <h2>What sounds like the perfect vacation day?</h2>
+        <div class="options">
+            <button class="option-btn" onclick="answer(1, 'culture')">Wandering through old streets and visiting museums.</button>
+            <button class="option-btn" onclick="answer(1, 'adventure')">Hiking through a jungle or exploring nature.</button>
+            <button class="option-btn" onclick="answer(1, 'city')">Shopping, street food, and exploring a busy city.</button>
+            <button class="option-btn" onclick="answer(1, 'beach')">Relaxing on a beach with a good book.</button>
+        </div>
+    </div>
+
+    <!-- question 2 -->
+    <div class="question" id="q2">
+        <h2>What kind of food do you want to eat?</h2>
+        <div class="options">
+            <button class="option-btn" onclick="answer(2, 'culture')">Fresh pasta, bread, and gelato.</button>
+            <button class="option-btn" onclick="answer(2, 'adventure')">Tropical fruits and local dishes.</button>
+            <button class="option-btn" onclick="answer(2, 'city')">Ramen, dumplings, and street food markets.</button>
+            <button class="option-btn" onclick="answer(2, 'beach')">Fresh seafood and smoothies.</button>
+        </div>
+    </div>
+
+    <!-- question 3 -->
+    <div class="question" id="q3">
+        <h2>Pick a travel vibe.</h2>
+        <div class="options">
+            <button class="option-btn" onclick="answer(3, 'culture')">Romantic, historic, and artistic.</button>
+            <button class="option-btn" onclick="answer(3, 'adventure')">Wild, lush, and off the beaten path.</button>
+            <button class="option-btn" onclick="answer(3, 'city')">Fast-paced, colorful, and electric.</button>
+            <button class="option-btn" onclick="answer(3, 'beach')">Calm, warm, and carefree.</button>
+        </div>
+    </div>
+
+    <!-- question 4 -->
+    <div class="question" id="q4">
+        <h2>How do you like to get around?</h2>
+        <div class="options">
+            <button class="option-btn" onclick="answer(4, 'culture')">Walking everywhere and getting lost on purpose.</button>
+            <button class="option-btn" onclick="answer(4, 'adventure')">Boats, zip lines, or anything outdoorsy.</button>
+            <button class="option-btn" onclick="answer(4, 'city')">Trains, subways, and taxis.</button>
+            <button class="option-btn" onclick="answer(4, 'beach')">A golf cart or just my own two feet on the sand.</button>
+        </div>
+    </div>
+
+    <!-- question 5 -->
+    <div class="question" id="q5">
+        <h2>What do you want to bring home?</h2>
+        <div class="options">
+            <button class="option-btn" onclick="answer(5, 'culture')">Leather goods, art prints, and olive oil.</button>
+            <button class="option-btn" onclick="answer(5, 'adventure')">Handmade jewelry and nature photos.</button>
+            <button class="option-btn" onclick="answer(5, 'city')">Cute stationery, snacks, and skincare products.</button>
+            <button class="option-btn" onclick="answer(5, 'beach')">Seashells, a tan, and a lot of naps to catch up on.</button>
+        </div>
+    </div>
+
+    <!-- result -->
+    <div class="result" id="result">
+        <h2>Your travel match is...</h2>
+        <p class="destination-name" id="destinationName"></p>
+        <img class="result-img" id="resultImg" src="" alt="Destination">
+        <p id="resultDesc"></p>
+        <button class="btn btn-pink" onclick="restart()">Take It Again</button>
+        <a href="scratch.html" class="btn btn-outline">Back to Destinations</a>
+    </div>
+</div>
+
+<div class="back-link">
+    <a href="scratch.html">Back to Favorite Travel Destinations</a>
+</div>
+
+<script>
+var scores = { culture: 0, adventure: 0, city: 0, beach: 0 };
+var currentQ = 1;
+var totalQ = 5;
+
+var destinations = {
+    culture: {
+        name: "Italy",
+        img: "images/Italy.jpg",
+        desc: "You belong in Italy! You love history, beautiful architecture, incredible food, and soaking in the charm of a place. From Rome to the Amalfi Coast, Italy is calling your name."
+    },
+    adventure: {
+        name: "Costa Rica",
+        img: "images/CostaRica.jpg",
+        desc: "Costa Rica is your match! You are happiest surrounded by nature, wildlife, and a little bit of adventure. Rainforests, volcanoes, and beaches are waiting for you."
+    },
+    city: {
+        name: "Japan",
+        img: "images/Japan!.jpg",
+        desc: "You need to go to Japan! You love a city that never stops, amazing food around every corner, and a culture that blends the old with the new perfectly."
+    },
+    beach: {
+        name: "Bahamas",
+        img: "images/Thailand.jpg",
+        desc: "The Bahamas are calling! You are all about warm weather, crystal clear water, and slowing down to enjoy life. Pack your swimsuit and sunscreen."
+    }
+};
+
+function answer(qNum, category) {
+    scores[category]++;
+    currentQ++;
+
+    var progress = (qNum / totalQ) * 100;
+    document.getElementById("progressFill").style.width = progress + "%";
+
+    if (currentQ <= totalQ) {
+        document.getElementById("q" + qNum).classList.remove("active");
+        document.getElementById("q" + currentQ).classList.add("active");
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    document.getElementById("q" + totalQ).classList.remove("active");
+    document.getElementById("progressFill").style.width = "100%";
+
+    var winner = "culture";
+    var maxScore = 0;
+    for (var key in scores) {
+        if (scores[key] > maxScore) {
+            maxScore = scores[key];
+            winner = key;
+        }
+    }
+
+    var dest = destinations[winner];
+    document.getElementById("destinationName").textContent = dest.name;
+    document.getElementById("resultImg").src = dest.img;
+    document.getElementById("resultDesc").textContent = dest.desc;
+    document.getElementById("result").classList.add("active");
+}
+
+function restart() {
+    scores = { culture: 0, adventure: 0, city: 0, beach: 0 };
+    currentQ = 1;
+    document.getElementById("result").classList.remove("active");
+    document.getElementById("progressFill").style.width = "0%";
+
+    for (var i = 1; i <= totalQ; i++) {
+        document.getElementById("q" + i).classList.remove("active");
+    }
+    document.getElementById("q1").classList.add("active");
+}
+</script>
+
+</body>
+</html>

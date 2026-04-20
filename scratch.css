@@ -1,0 +1,223 @@
+/* ====================================
+   Scratch Page - Custom Stylesheet
+   Favorite Travel Destinations
+   ==================================== */
+
+/* body and base styles */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    color: #4a4a4a;
+    background-color: #fdf8f5;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+}
+
+/* top navigation */
+.scratch-nav {
+    background-color: #fff;
+    padding: 16px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 1px solid #f0e8e4;
+    box-sizing: border-box;
+}
+
+.scratch-nav .nav-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3a3a3a;
+    text-decoration: none;
+}
+
+.scratch-nav .nav-name:hover {
+    color: #d4839b;
+}
+
+.scratch-nav .links a {
+    color: #777;
+    margin-left: 22px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'Arial', sans-serif;
+}
+
+.scratch-nav .links a:hover {
+    color: #d4839b;
+}
+
+.scratch-nav .links a.active {
+    color: #d4839b;
+    border-bottom: 2px solid #d4839b;
+    padding-bottom: 3px;
+}
+
+/* page header / hero */
+.page-header {
+    text-align: center;
+    padding: 120px 20px 50px 20px;
+    background: linear-gradient(160deg, #fce4ec 0%, #f8d7e0 40%, #e8f0e4 100%);
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    color: #3a3a3a;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #888;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* anchor link styling */
+.jump-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: #d4839b;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid #d4839b;
+    padding: 8px 22px;
+    border-radius: 25px;
+    transition: all 0.2s;
+}
+
+.jump-link:hover {
+    background-color: #d4839b;
+    color: white;
+}
+
+/* content sections */
+.section {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 25px;
+}
+
+.section h2 {
+    font-size: 1.9rem;
+    color: #3a3a3a;
+    margin-bottom: 15px;
+}
+
+.section p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* destination cards row */
+.dest-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.dest-card {
+    flex: 1;
+    min-width: 240px;
+    max-width: 380px;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.dest-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+}
+
+.dest-card .card-text {
+    padding: 18px;
+}
+
+.dest-card .card-text h3 {
+    font-size: 1.2rem;
+    color: #3a3a3a;
+    margin: 0 0 6px 0;
+}
+
+.dest-card .card-text p {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+}
+
+/* lists */
+ol {
+    padding-left: 22px;
+    color: #555;
+    font-size: 1rem;
+}
+
+ol li {
+    margin-bottom: 10px;
+}
+
+ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+ul li {
+    margin-bottom: 4px;
+    color: #888;
+    font-size: 0.95rem;
+    list-style-type: disc;
+}
+
+/* video and tableau containers */
+.media-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.media-container iframe {
+    border-radius: 12px;
+    max-width: 100%;
+}
+
+/* quiz link button */
+.quiz-link {
+    display: inline-block;
+    background-color: #d4839b;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+
+.quiz-link:hover {
+    background-color: #c06a84;
+}
+
+/* footer */
+.scratch-footer {
+    background-color: #f4f8f2;
+    color: #aaa;
+    text-align: center;
+    padding: 22px;
+    font-size: 0.85rem;
+    border-top: 1px solid #e4e0dc;
+    margin-top: 40px;
+}

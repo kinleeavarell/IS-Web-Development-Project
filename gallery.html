@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Makinlee Avarell - Gallery</title>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- masonry layout -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+</head>
+
+<body>
+
+<!-- nav -->
+<div class="topnav">
+    <a href="index.html" class="nav-name">Makinlee Avarell</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="resume.html">Resume</a>
+        <a href="travel.html">Travel</a>
+        <a href="gallery.html" class="active">Gallery</a>
+    </div>
+</div>
+
+<br><br><br>
+
+<!-- gallery header -->
+<div style="text-align:center; padding: 45px 20px 15px 20px;">
+    <h1>Gallery <i class="fas fa-camera" style="color:#d4839b;"></i></h1>
+    <p style="color:#999; max-width:580px; margin:auto;">Some of my favorite pictures with the people I love most!</p>
+</div>
+
+<br>
+
+<!-- photo gallery grid -->
+<div style="max-width:1100px; margin:0 auto; padding:0 20px;">
+    <div class="photo-gallery" id="photoGallery">
+
+        <div class="gallery-item">
+            <img src="images/Family.JPG" alt="Family">
+            <p class="gallery-caption">Here is a recent picture of my family!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Siblingsnow.JPG" alt="Siblings now">
+            <p class="gallery-caption">A more recent picture of my siblings and me. This was taken in South Korea!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Proposal.jpg" alt="Proposal">
+            <p class="gallery-caption">This is my fianc&eacute; Jaxon and me when we got engaged!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Siblingsthen.jpg" alt="Siblings when we were younger">
+            <p class="gallery-caption">My siblings and me when we were younger. I am the oldest of four kids!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Rue.jpg" alt="Rue the puppy">
+            <p class="gallery-caption">My dog Rue as a puppy. She is a micro goldendoodle and I am obsessed with her!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/NYC.jpg" alt="NYC with Addie">
+            <p class="gallery-caption">My sister Addie and me visiting NYC. We actually lived in Manhattan when we were both little!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/BridalShower.jpg" alt="Bridal shower">
+            <p class="gallery-caption">Me, my two sisters, my mom, and my grandma!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Engagement.jpg" alt="Engagement">
+            <p class="gallery-caption">Jaxon and I. We get married on May 6th!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Cheer.jpg" alt="Senior year cheer">
+            <p class="gallery-caption">Me during my senior year of high school. I did cheer all three years and loved it!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/BYUgame.jpg" alt="BYU vs Utah game">
+            <p class="gallery-caption">Jaxon and me at the BYU vs. Utah game last year. Go Cougs!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Cheersisters.JPG" alt="Cheer sisters">
+            <p class="gallery-caption">My sisters and I all did cheer at the same time. This was taken after a halftime where we all performed together!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Graduation.jpg" alt="Graduation">
+            <p class="gallery-caption">I graduated from Skyridge High School!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Dad.JPG" alt="Dad and Addie">
+            <p class="gallery-caption">This is my dad and my sister Addie. He makes all of our vacations possible!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Skiing.jpg" alt="Skiing">
+            <p class="gallery-caption">My family loves to ski, and this is my dad teaching me when I was four years old!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/BYUbound.JPG" alt="BYU bound">
+            <p class="gallery-caption">I was so excited to be accepted into BYU!</p>
+        </div>
+
+        <div class="gallery-item">
+            <img src="images/Seniors.JPG" alt="Senior night">
+            <p class="gallery-caption">My senior year along with the rest of the seniors on my cheer team on senior night!</p>
+        </div>
+
+    </div>
+</div>
+
+<br><br>
+
+<!-- footer -->
+<div class="footer">
+    <p>Made by Makinlee Avarell &copy; 2026</p>
+</div>
+
+<script>
+var grid = document.querySelector('.photo-gallery');
+imagesLoaded(grid, function() {
+    new Masonry(grid, {
+        itemSelector: '.gallery-item',
+        columnWidth: '.gallery-item',
+        percentPosition: true,
+        gutter: 18
+    });
+});
+</script>
+
+</body>
+</html>

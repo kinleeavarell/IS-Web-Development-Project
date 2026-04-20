@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Makinlee Avarell - Travel</title>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- leaflet map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+<!-- nav -->
+<div class="topnav">
+    <a href="index.html" class="nav-name">Makinlee Avarell</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="resume.html">Resume</a>
+        <a href="travel.html" class="active">Travel</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+</div>
+
+<br><br><br>
+
+<!-- travel header -->
+<div style="text-align:center; padding: 45px 20px 15px 20px;">
+    <h1>My Travel Adventures <i class="fas fa-plane" style="color:#d4839b;"></i></h1>
+    <p style="color:#999; max-width:580px; margin:auto;">I've been to <strong style="color:#d4839b;">28 countries</strong> and counting!
+    I love exploring new places and experiencing different cultures.
+    Here are some of my favorite trips! Click on a card to see photos.</p>
+</div>
+
+<!-- world map -->
+<div style="text-align:center; max-width:900px; margin: 0 auto; padding: 0 20px;">
+    <h2>Where I've Been</h2>
+    <div id="travelMap" style="height:420px; border-radius:16px; border:1px solid #eae6e3; margin-top:15px;"></div>
+</div>
+
+<br><br>
+
+<!-- travel cards -->
+<div class="travel-grid">
+
+    <!-- thailand -->
+    <div class="travel-card" onclick="openGallery('thailand')">
+        <div class="travel-card-img" style="background: linear-gradient(135deg, #e8f0e4, #d4e4cc);">
+            <i class="fas fa-spa" style="font-size: 3.5rem; color: #7a9e6b;"></i>
+        </div>
+        <div class="travel-card-text">
+            <h3>Thailand</h3>
+            <p>I went on an HXP humanitarian trip where we built two classrooms for a school. The sightseeing and culture made it an unreal experience.</p>
+        </div>
+    </div>
+
+    <!-- israel and uae -->
+    <div class="travel-card" onclick="openGallery('dubai')">
+        <div class="travel-card-img" style="background: linear-gradient(135deg, #f0ebe0, #e8e0d0);">
+            <i class="fas fa-mosque" style="font-size: 3.5rem; color: #a08b6e;"></i>
+        </div>
+        <div class="travel-card-text">
+            <h3>Israel & UAE</h3>
+            <p>Walking through ancient streets in Israel and then seeing the futuristic skyline of the UAE was such a cool contrast.</p>
+        </div>
+    </div>
+
+    <!-- japan and korea -->
+    <div class="travel-card" onclick="openGallery('japan')">
+        <div class="travel-card-img" style="background: linear-gradient(135deg, #fce4ec, #f8d0dc);">
+            <i class="fas fa-torii-gate" style="font-size: 3.5rem; color: #d4839b;"></i>
+        </div>
+        <div class="travel-card-text">
+            <h3>Japan & Korea</h3>
+            <p>The food, the cities, and all the little details everywhere made Japan and Korea so fun to explore.</p>
+        </div>
+    </div>
+
+    <!-- italy -->
+    <div class="travel-card" onclick="openGallery('italy')">
+        <div class="travel-card-img" style="background: linear-gradient(135deg, #f8e4d0, #f0d4c0);">
+            <i class="fas fa-landmark" style="font-size: 3.5rem; color: #c98a5c;"></i>
+        </div>
+        <div class="travel-card-text">
+            <h3>Italy</h3>
+            <p>The pasta, the art, and the charming little streets - Italy has my heart and I definitely need to go back.</p>
+        </div>
+    </div>
+
+    <!-- european adventure -->
+    <div class="travel-card" onclick="openGallery('europe')">
+        <div class="travel-card-img" style="background: linear-gradient(135deg, #e4e8f0, #d0d8e8);">
+            <i class="fas fa-map-location-dot" style="font-size: 3.5rem; color: #7088a8;"></i>
+        </div>
+        <div class="travel-card-text">
+            <h3>European Adventure</h3>
+            <p>One big trip through England, France, Belgium, Amsterdam, the Czech Republic, Hungary, Austria, and Slovakia. Eight countries and so many cities.</p>
+        </div>
+    </div>
+
+    <!-- costa rica and panama -->
+    <div class="travel-card" onclick="openGallery('costarica')">
+        <div class="travel-card-img" style="background: linear-gradient(135deg, #e4f0e8, #c8e4d0);">
+            <i class="fas fa-leaf" style="font-size: 3.5rem; color: #5a9e6b;"></i>
+        </div>
+        <div class="travel-card-text">
+            <h3>Costa Rica & Panama</h3>
+            <p>Rainforests, wildlife, and beaches - Costa Rica and Panama were the perfect mix of adventure and relaxation.</p>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<!-- photo gallery popup -->
+<div class="gallery-overlay" id="galleryOverlay" onclick="closeGallery(event)">
+    <div class="gallery-box">
+        <span class="gallery-close" onclick="closeGallery(event)">&times;</span>
+        <h2 id="galleryTitle" style="text-align:center; margin-bottom:15px;"></h2>
+        <div class="gallery-photos" id="galleryPhotos">
+        </div>
+    </div>
+</div>
+
+<!-- favorite travel quote -->
+<div class="travel-quote">
+    <p style="font-family: 'Playfair Display', serif; font-size:1.4rem; color:#555; font-style:italic; max-width:650px; margin:auto;">
+    "The world is a book, and those who do not travel read only one page."</p>
+    <p style="color:#bbb; margin-top:10px;">- Saint Augustine</p>
+</div>
+
+<br>
+
+<!-- footer -->
+<div class="footer">
+    <p>Made by Makinlee Avarell &copy; 2026</p>
+</div>
+
+
+<!-- gallery javascript -->
+<script>
+
+var trips = {
+    thailand: {
+        title: "Thailand",
+        photos: ["images/Thailand1.jpg", "images/Thailand2.jpg", "images/Thailand3.jpg", "images/Thailand.jpg"]
+    },
+    dubai: {
+        title: "Israel & UAE",
+        photos: ["images/Dubai.jpg", "images/Dubai3.jpg", "images/Dubai2.jpg", "images/Dubai1.jpg"]
+    },
+    japan: {
+        title: "Japan & Korea",
+        photos: ["images/Japan!.jpg", "images/Japan1.JPG", "images/Japan2.jpg", "images/Japan3.JPG"]
+    },
+    italy: {
+        title: "Italy",
+        photos: ["images/Italy.jpg", "images/Italy1.JPG", "images/Italy3.jpg", "images/Italy2.jpg"]
+    },
+    europe: {
+        title: "European Adventure",
+        photos: ["images/Europe.jpg", "images/Europe1.jpg", "images/Europe3.jpg", "images/Europe2.jpg"]
+    },
+    costarica: {
+        title: "Costa Rica & Panama",
+        photos: ["images/CostaRica.jpg", "images/CostaRica1.jpg", "images/CostaRica3.jpg", "images/CostaRica2.JPG"]
+    }
+};
+
+function openGallery(tripName) {
+    var trip = trips[tripName];
+    document.getElementById("galleryTitle").textContent = trip.title;
+
+    var photosDiv = document.getElementById("galleryPhotos");
+    photosDiv.innerHTML = "";
+
+    for (var i = 0; i < trip.photos.length; i++) {
+        var img = document.createElement("img");
+        img.src = trip.photos[i];
+        img.alt = trip.title + " photo " + (i + 1);
+        photosDiv.appendChild(img);
+    }
+
+    document.getElementById("galleryOverlay").style.display = "flex";
+}
+
+function closeGallery(event) {
+    if (event.target === document.getElementById("galleryOverlay") || event.target.className === "gallery-close") {
+        document.getElementById("galleryOverlay").style.display = "none";
+    }
+}
+
+</script>
+
+<!-- map javascript -->
+<script>
+
+var map = L.map('travelMap', {
+    scrollWheelZoom: false
+}).setView([25, 10], 2);
+
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    attribution: '',
+    maxZoom: 12
+}).addTo(map);
+
+map.attributionControl.setPrefix('');
+
+// continent labels
+var continents = [
+    {name: "North America", lat: 45, lng: -100},
+    {name: "South America", lat: -15, lng: -58},
+    {name: "Europe", lat: 54, lng: 15},
+    {name: "Africa", lat: 5, lng: 20},
+    {name: "Asia", lat: 45, lng: 85},
+    {name: "Australia", lat: -25, lng: 134},
+    {name: "Antarctica", lat: -78, lng: 0}
+];
+
+for (var c = 0; c < continents.length; c++) {
+    L.marker([continents[c].lat, continents[c].lng], {
+        icon: L.divIcon({
+            html: '<span style="font-family: Playfair Display, serif; font-size:0.85rem; color:#bbb; font-style:italic; white-space:nowrap;">' + continents[c].name + '</span>',
+            iconSize: [0, 0],
+            className: ''
+        }),
+        interactive: false
+    }).addTo(map);
+}
+
+// custom pink pin icon
+var pinkPin = L.divIcon({
+    html: '<i class="fas fa-map-pin" style="color:#d4839b; font-size:1.4rem;"></i>',
+    iconSize: [20, 20],
+    iconAnchor: [10, 20],
+    className: ''
+});
+
+// all 28 countries
+var countries = [
+    {name: "Canada", lat: 45.42, lng: -75.70},
+    {name: "USA", lat: 38.91, lng: -77.04},
+    {name: "Mexico", lat: 19.43, lng: -99.13},
+    {name: "Grand Cayman Islands", lat: 19.31, lng: -81.25},
+    {name: "Bahamas", lat: 25.03, lng: -77.40},
+    {name: "Costa Rica", lat: 9.93, lng: -84.09},
+    {name: "Panama", lat: 8.98, lng: -79.52},
+    {name: "Chile", lat: -33.45, lng: -70.67},
+    {name: "Argentina", lat: -34.60, lng: -58.38},
+    {name: "Ireland", lat: 53.35, lng: -6.26},
+    {name: "England", lat: 51.51, lng: -0.13},
+    {name: "France", lat: 48.86, lng: 2.35},
+    {name: "Portugal", lat: 38.72, lng: -9.14},
+    {name: "Spain", lat: 40.42, lng: -3.70},
+    {name: "Belgium", lat: 50.85, lng: 4.35},
+    {name: "Netherlands", lat: 52.37, lng: 4.90},
+    {name: "Germany", lat: 52.52, lng: 13.41},
+    {name: "Czech Republic", lat: 50.08, lng: 14.44},
+    {name: "Austria", lat: 48.21, lng: 16.37},
+    {name: "Slovakia", lat: 48.15, lng: 17.11},
+    {name: "Hungary", lat: 47.50, lng: 19.04},
+    {name: "Italy", lat: 41.90, lng: 12.50},
+    {name: "Vatican City", lat: 41.90, lng: 12.45},
+    {name: "UAE", lat: 25.20, lng: 55.27},
+    {name: "Israel", lat: 31.77, lng: 35.21},
+    {name: "Thailand", lat: 13.76, lng: 100.50},
+    {name: "South Korea", lat: 37.57, lng: 126.98},
+    {name: "Japan", lat: 35.68, lng: 139.65}
+];
+
+for (var i = 0; i < countries.length; i++) {
+    L.marker([countries[i].lat, countries[i].lng], {icon: pinkPin})
+     .bindPopup(countries[i].name)
+     .addTo(map);
+}
+
+</script>
+
+</body>
+</html>
